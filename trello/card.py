@@ -724,22 +724,22 @@ class Card(TrelloBase):
 
     def change_pos(self, position):
         self.client.fetch_json(
-            '/cards/' + self.id + '/pos',
+            '/cards/' + self.id,
             http_method='PUT',
-            post_args={'value': position})
+            post_args={'pos': position})
 
     def change_list(self, list_id):
         self.client.fetch_json(
-            '/cards/' + self.id + '/idList',
+            '/cards/' + self.id,
             http_method='PUT',
-            post_args={'value': list_id})
+            post_args={'idList': list_id})
 
     def change_board(self, board_id, list_id=None):
-        args = {'value': board_id}
+        args = {'idBoard': board_id}
         if list_id is not None:
             args['idList'] = list_id
         self.client.fetch_json(
-            '/cards/' + self.id + '/idBoard',
+            '/cards/' + self.id,
             http_method='PUT',
             post_args=args)
 

@@ -812,9 +812,9 @@ class Card(TrelloBase):
         :param is_complete: boolean
         :return: None
         """
-        self.client.fetch_json('/cards/' + self.id + '/dueComplete',
+        self.client.fetch_json('/cards/' + self.id,
                                http_method='PUT',
-                               post_args={'value': is_complete})
+                               post_args={'dueComplete': is_complete})
 
     def _set_remote_attribute(self, attribute, value):
         self.client.fetch_json(
